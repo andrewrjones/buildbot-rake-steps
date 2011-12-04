@@ -29,12 +29,12 @@ class RakeTest(Test):
         if test_result_lines:
             test_result_line = test_result_lines[0]
 
-            passed = int(test_result_line[0])
-            #assertions = int(test_result_line[1]) not currently used
+            total = int(test_result_line[0])
+            #assertions = int(test_result_line[1]) # not currently used
             failed = int(test_result_line[2])
             errors = int(test_result_line[3])
             
-            total = passed + failed
+            passed = total - failed
 
             if failed:
                 rc = FAILURE
